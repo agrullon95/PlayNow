@@ -1,7 +1,7 @@
 {
-  "name": "PlayNow",
+  "name": "playnow",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pickup sport application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/iliassSabillah/PlayNow.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anthony Grullon, Dramane Diakite, Iliass Sabillah, Diana Pilat",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/iliassSabillah/PlayNow/issues"
@@ -19,5 +19,6 @@
   "homepage": "https://github.com/iliassSabillah/PlayNow#readme",
   "dependencies": {
     "express": "^4.14.0"
-  }
+  },
+  "devDependencies": {}
 }
