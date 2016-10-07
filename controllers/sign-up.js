@@ -22,7 +22,7 @@ module.exports = {
       password: req.body.inputPassword,
     }).then((user) => {
       req.login(user, () =>
-        res.redirect('/profile')
+        res.redirect('/')
       );
     }).catch(() => {
       res.render('sign-up');
