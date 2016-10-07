@@ -5,7 +5,9 @@ var express = require('express');
 var expressSession = require('express-session');
 var flash = require('connect-flash');
 var methodOverride = require('method-override');
+var models = require('./models/');
 //var passport = require('');
+var viewHelpers = require('./middlewares/viewHelpers')
 
 
 var app = express();
@@ -27,31 +29,10 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/views/`);
 
-// Sequelize initialization
-var sequelize = new Sequelize('playnow', 'playnow', 'ctp2016', {
-  host: 'localhost',
-  dialect: 'postgres',
-
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  }
-
-});
-
 app.use(require('./controllers/'));
 
-// models.sequelize.sync().then(() => {
-//   app.listen(3000);
-// });
-
-// END
-
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+models.sequelize.sync().then(() => {
+  app.listen(3000, function() {
+    console.log('App listening on port 3000!' + '\nGo to http://localhost:3000');
+  });
 });
