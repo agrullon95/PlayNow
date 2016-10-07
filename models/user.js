@@ -1,8 +1,8 @@
-const Sequelize = require('sequelize');
-const bcrypt = require('bcrypt-nodejs');
+var Sequelize = require('sequelize');
+var bcrypt = require('bcrypt-nodejs');
 
 module.exports = (sequelize) => {
-  const User = sequelize.define('user', {
+  var User = sequelize.define('user', {
     firstName: {
       type: Sequelize.STRING,
       allowNull: false,
