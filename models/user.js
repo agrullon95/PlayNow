@@ -44,15 +44,15 @@ module.exports = (sequelize) => {
     },
   });
 
-  // User.beforeCreate((user) =>
-  //   new sequelize.Promise((resolve) => {
-  //     bcrypt.hash(user.password, null, null, (err, hashedPassword) => {
-  //       resolve(hashedPassword);
-  //     });
-  //   }).then((hashedPw) => {
-  //     user.password = hashedPw;
-  //   })
-  // );
+  User.beforeCreate((user) =>
+    new sequelize.Promise((resolve) => {
+      bcrypt.hash(user.password, null, null, (err, hashedPassword) => {
+        resolve(hashedPassword);
+      });
+    }).then((hashedPw) => {
+      user.password = hashedPw;
+    })
+  );
 
   return User;
 };

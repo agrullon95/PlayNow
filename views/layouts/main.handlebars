@@ -23,8 +23,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Login</a></li>
+          {{#if cur_user}}
+          <li><a href="#">{{cur_user.username}}</a></li>
+          <li id="logout"><a href="#">Logout</a></li>
+          {{else}}
+          <li><a href="/sign-up">Sign Up</a></li>
+          <li><a href="/login">Login</a></li>
+          {{/if}}
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -37,5 +42,21 @@
       <p class="text-muted">&copy; 2016 - PlayNow</p>
     </div>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  {{#if cur_user}}
+  <script>
+    ;(function() {
+      $('#logout').click(function() {
+        $.post("/logout", function() {
+          window.location.href = '/';
+        });
+      });
+    })();
+  </script>
+  {{/if}}
+
 </body>
+
 </html>
