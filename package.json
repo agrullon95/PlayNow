@@ -34,9 +34,10 @@
     "path": "^0.12.7",
     "pg": "^6.1.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^3.24.3",
+    "sequelize": "^2.0.0-rc1",
     "sequelize-cli": "^2.4.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "sqlite3": "^3.1.6"
   },
   "devDependencies": {
     "chai": "^3.5.0",
