@@ -3,7 +3,7 @@ var redirect = {};
 redirect.ifLoggedIn = (route) =>
   (req, res, next) => (req.user ? res.redirect(route) : next());
 
-redirect.ifNotLoggedIn = (route = '/login') =>
+redirect.ifNotLoggedIn = (route) =>
   (req, res, next) => (req.user ? next() : res.redirect(route));
 
 redirect.ifNotAuthorized = (route) =>
